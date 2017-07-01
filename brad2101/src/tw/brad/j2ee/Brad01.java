@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/III01.php")
+@WebServlet("/Brad01")
 public class Brad01 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 //		System.out.println("doGet");
-		
+		response.setContentType("text/html; charset=UTF-8");
 		try (PrintWriter writer = response.getWriter()){
 			writer.write("Hello, World");
 			writer.flush();
