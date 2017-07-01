@@ -2,10 +2,10 @@ package tw.brad.j2ee;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
-import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -50,28 +50,21 @@ public class Brad11 extends HttpServlet {
 		bin.close();
 
 		ServletContext context = getServletContext();
-		Enumeration<String> names = context.getInitParameterNames();
-		while (names.hasMoreElements()) {
-			String pname = names.nextElement();
-			out.println(pname + " = " + 
-				context.getInitParameter(pname) + "<br>");
-		}
+//		Enumeration<String> names = context.getInitParameterNames();
+//		while (names.hasMoreElements()) {
+//			String pname = names.nextElement();
+//			out.println(pname + " = " + 
+//				context.getInitParameter(pname) + "<br>");
+//		}
 		
-				
+		String uploadPath= context.getInitParameter("upload-path");
 		
+		FileOutputStream fout = 
+			new FileOutputStream(new File(uploadPath, filename));
 		
-		
-//		FileOutputStream fout = 
-//			new FileOutputStream(
-//				"C:\\Users\\user01\\git_j2ee\\brad2101\\WebContent\\dir1\\" + filename);
-		
-//		FileOutputStream fout = 
-//				new FileOutputStream(
-//					"dir1/" + filename);
-		
-//		fout.write(buf);
-//		fout.flush();
-//		fout.close();
+		fout.write(buf);
+		fout.flush();
+		fout.close();
 		
 	}
 

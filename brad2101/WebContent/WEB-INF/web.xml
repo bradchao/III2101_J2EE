@@ -14,11 +14,9 @@
       more information.
     </description>
     <context-param>
-      <param-name>webmaster</param-name>
-      <param-value>myaddress@mycompany.com</param-value>
-      <description>
-        The EMAIL address of the administrator to whom questions
-        and comments about this application should be addressed.
+      <param-name>upload-path</param-name>
+      <param-value>C:\Users\user01\git_j2ee\brad2101\WebContent\dir1</param-value>
+      <description>Upload File directory
       </description>
     </context-param>
     <servlet>
