@@ -27,6 +27,7 @@ public class AddAccount extends HttpServlet {
 		if (account != null) {
 			// 處理新增
 			addAccount(account,passwd);
+			response.sendRedirect("Main");
 		}
 		
 		out.println("<form>");
