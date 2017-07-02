@@ -27,11 +27,16 @@ public class Brad13 extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String uploadPath = getServletContext().getInitParameter("upload-path");
-//		Part part = request.getPart("upload");
+		Part part = request.getPart("upload");
+		
+		String header = part.getHeader("Content-Disposition");
+		out.print(header + "<br>");
+		out.print(BradAPI.getHeaderFileName(header));
+		
 //		String filename = part.getSubmittedFileName();
 //		part.write(uploadPath + "/" + filename);
 		
-		out.print(uploadPath + "<br>");
+//		out.print(uploadPath + "<br>");
 //		out.print(filename + "<br>");
 //		out.print("Upload Success");
 	}
