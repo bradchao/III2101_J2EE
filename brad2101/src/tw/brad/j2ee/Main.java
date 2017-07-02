@@ -32,6 +32,15 @@ public class Main extends HttpServlet {
 			Connection conn =
 				DriverManager.getConnection(
 					"jdbc:mysql://127.0.0.1:3306/iii", prop);
+			
+			
+			String delid = request.getParameter("delid");
+			if (delid != null) {
+				conn.createStatement().executeUpdate(
+					"DELETE FROM cust WHERE id = " + delid);
+			}
+			
+			
 			PreparedStatement pstmt = 
 				conn.prepareStatement(
 					"SELECT * FROM cust");
@@ -46,17 +55,23 @@ public class Main extends HttpServlet {
 		out.println("<hr />");
 		out.println("<table border='1' width='100%'>");
 		out.println("<tr>\r\n" + 
-				"		<th>ID</th>\r\n" + 
-				"		<th>Name</th>\r\n" + 
-				"		<th>Password</th>\r\n" + 
+				"		<th>ID</th>\n" + 
+				"		<th>Name</th>\n" + 
+				"		<th>Password</th>\n" + 
+				"		<th>Delete</th>\n" + 
 				"	</tr>");
 		try {
 			if (rs != null) {
 				while (rs.next()) {
+					String id = rs.getString("id");
+					String account = rs.getString("account");
 					out.print("<tr>");
-					out.print("<td>" + rs.getString("id") + "</td>");
+					out.print("<td>" + id + "</td>");
 					out.print("<td>" + rs.getString("account") + "</td>");
 					out.print("<td>" + rs.getString("passwd") + "</td>");
+					out.print("<td><a href='?delid=" + id + 
+							"' onclick='return confirm(\"Delete " 
+							+ account + "?\");'>Delete</a></td>");
 					out.print("</tr>");
 				}
 			}
