@@ -28,8 +28,8 @@ user: <%= user %><br>
 passwd: <%= passwd %><br>
 ip: <%= ip %><br>
 <hr>
-Method: ${pageContext.request.method }
-
+Method: ${pageContext.request.method }<br>
+Query: ${pageContext.request.queryString }<br>
 
 
 
