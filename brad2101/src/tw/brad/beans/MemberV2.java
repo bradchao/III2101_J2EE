@@ -41,4 +41,8 @@ public class MemberV2 {
 		return n > 0;
 	}
 	
+	public boolean isValidMember() {
+		return true;
+	}
+	
 }
