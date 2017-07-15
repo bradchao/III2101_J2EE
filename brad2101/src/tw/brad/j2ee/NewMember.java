@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import tw.brad.beans.MemberV2;
+
 @WebServlet("/NewMember")
 public class NewMember extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +24,20 @@ public class NewMember extends HttpServlet {
 		String realname = request.getParameter("realname");
 	
 		// 2. Model
-		
+		try {
+			MemberV2 member = new MemberV2();
+			member.setAccount(account);
+			member.setPasswd(passwd);
+			member.setRealname(realname);
+			boolean result = member.newInsert();
+			// View
+			request.setAttribute("result", result);
+			request.getRequestDispatcher("result.jsp").forward(request, response);
+			
+		}catch(Exception e) {
+			request.setAttribute("error", e);
+			request.getRequestDispatcher("syserror.jsp").forward(request, response);
+		}
 	
 	}
 
