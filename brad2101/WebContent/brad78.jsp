@@ -29,6 +29,7 @@
 		<th>Password</th>
 		<th>Real Name</th>
 		<th>Delete</th>
+		<th>Edit</th>
 	</tr>
 	<c:forEach items="${result.rows }" var="row">
 		<tr>
@@ -37,6 +38,7 @@
 			<td>${row.passwd }</td>
 			<td>${row.realname }</td>
 			<td><a href="?delid=${row.id}">Delete</a></td>
+			<td><a href="brad79.jsp?editid=${row.id}">Edit</a></td>
 		</tr>
 	</c:forEach>
 	
