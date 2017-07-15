@@ -3,6 +3,7 @@ package tw.brad.beans;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /*
  * JavaBean rules
@@ -14,23 +15,30 @@ import java.sql.DriverManager;
  */
 //public class Member implements Serializable {
 public class MemberV2 {	
-	private String name, passwd, realname;
+	private String account, passwd, realname;
 	private Connection conn;
+	private PreparedStatement pstmt;
 	
 	public MemberV2() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(
-			"jdbc:mysql://127.0.0.1:9487", "root", "root");
+			"jdbc:mysql://127.0.0.1:9487/brad", "root", "root");
 	}
-	public void setName(String name) {this.name=name;}
+	public void setAccount(String account) {this.account=account;}
 	public void setPasswd(String passwd) {this.passwd=passwd;}
 	public void setRealname(String realname) {this.realname=realname;}
-	public String getName() {return name;}
+	public String getAccount() {return account;}
 	public String getPasswd() {return passwd;}
 	public String getRealname() {return realname;}
 
 	public boolean newInsert() throws Exception {
-		
+		pstmt = conn.prepareStatement(
+			"INSERT INTO member (account,passwd,realname) VALUES (?,?,?)");
+		pstmt.setString(1, account);
+		pstmt.setString(2, passwd);
+		pstmt.setString(3, realname);
+		int n = pstmt.executeUpdate();
+		return n > 0;
 	}
 	
 }
