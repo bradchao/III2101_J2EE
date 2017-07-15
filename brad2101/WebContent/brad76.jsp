@@ -36,7 +36,8 @@ select * from member where account = ?
 <c:forEach items="${result3.rows }" var="row">
 ${row.id }:${row.account }:${row.passwd }:${row.realname }<br>
 </c:forEach>
-	
+<hr>
+${result.rows[0].account }
 
 
 </body>
