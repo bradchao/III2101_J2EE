@@ -22,6 +22,7 @@ public class NewMember extends HttpServlet {
 		String realname = request.getParameter("realname");
 	
 		// 2. Model
+		
 	
 	}
 
