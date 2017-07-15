@@ -30,12 +30,14 @@ public class LoginMember extends HttpServlet {
 			
 			if (member.isValidMember()) {
 				// Login Success
+				out.print("OK");
 			}else {
 				// Login Failure
+				out.print("XX");
 			}
 			
 		}catch(Exception e) {
-			
+			out.print("EE");
 		}
 		
 		

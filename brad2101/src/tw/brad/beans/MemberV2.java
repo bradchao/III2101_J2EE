@@ -1,9 +1,9 @@
 package tw.brad.beans;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /*
  * JavaBean rules
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
  */
 //public class Member implements Serializable {
 public class MemberV2 {	
-	private String account, passwd, realname;
+	private String id, account, passwd, realname;
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
@@ -41,8 +41,18 @@ public class MemberV2 {
 		return n > 0;
 	}
 	
-	public boolean isValidMember() {
-		return true;
+	public boolean isValidMember() throws Exception{
+		String sql = "SELECT * FROM member WHERE account=? AND passwd=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, account);
+		pstmt.setString(2, passwd);
+		ResultSet rs = pstmt.executeQuery();
+		boolean ret = rs.next();
+		if (ret) {
+			id = rs.getString("id");
+			realname = rs.getString("realname");
+		}
+		return ret;
 	}
 	
 }
