@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-歡迎, ${member.realname }<br>
+歡迎, ${member.realName }<br>
 <a href="Logout2">Logout</a>
 </body>
 </html>

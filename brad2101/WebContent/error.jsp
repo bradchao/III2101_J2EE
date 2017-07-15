@@ -11,7 +11,7 @@
 ERROR
 <%
 
-//out.println(exception); 
+out.println(exception); 
 %>
 </body>
 </html>

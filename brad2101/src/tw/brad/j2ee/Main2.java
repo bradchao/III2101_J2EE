@@ -20,7 +20,7 @@ public class Main2 extends HttpServlet {
 			// View
 			response.sendRedirect("Login");
 		}else {
-		//System.out.println(((MemberV2)session.getAttribute("member")).getRealname());
+		System.out.println(((MemberV2)session.getAttribute("member")).getRealName());
 		// View
 			request.getRequestDispatcher("main2.jsp").forward(request, response);
 		}
