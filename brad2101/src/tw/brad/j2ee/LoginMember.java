@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tw.brad.beans.MemberV2;
 
@@ -30,7 +31,10 @@ public class LoginMember extends HttpServlet {
 			
 			if (member.isValidMember()) {
 				// Login Success
-				out.print("OK");
+				HttpSession session = request.getSession();
+				session.setAttribute("member", member);
+				response.sendRedirect("Main2");
+				
 			}else {
 				// Login Failure
 				out.print("XX");
