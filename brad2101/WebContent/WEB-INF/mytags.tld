@@ -8,4 +8,19 @@
       <tag-class>tw.brad.j2ee.MyTag</tag-class>
       <body-content>empty</body-content>
    </tag>
+   <tag>
+      <name>Upper</name>
+      <tag-class>tw.brad.j2ee.MyTag2</tag-class>
+      <body-content>Scriptless</body-content>
+   </tag>
+   
+   <tag>
+      <name>mesg</name>
+      <tag-class>tw.brad.j2ee.MyTag3</tag-class>
+      <body-content>Scriptless</body-content>
+      <attribute>
+         <name>message</name>
+      </attribute>
+   </tag>
+
 </taglib>
