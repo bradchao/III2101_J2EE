@@ -1,3 +1,4 @@
+<%@page import="java.nio.charset.Charset"%>
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@page import="java.util.*" %>
 <%@page import="java.io.*" %>
@@ -25,6 +26,7 @@
 	ServletFileUpload upload = new ServletFileUpload(factory);
 	List<FileItem> items = upload.parseRequest(request);
 	
+	int i = 1;
 	for (FileItem item : items){
 		String name = item.getName();
 		long size = item.getSize();
@@ -32,7 +34,7 @@
 		boolean isMem = item.isInMemory();
 		out.print(name + ":" + size + ":" + fname + ":" + isMem + "<br>");
 		
-		item.write(new File(uploadPath, "brad.png"));
+		item.write(new File(uploadPath, "brad" + i++ + ".png"));
 		
 	}
 	
