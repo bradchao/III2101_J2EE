@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Brad44")
-public class Brad44 extends HttpServlet {
+@WebServlet("/Brad45")
+public class Brad45 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setMaxInactiveInterval(60);
-		
-		
-	
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
 	}
+
 }

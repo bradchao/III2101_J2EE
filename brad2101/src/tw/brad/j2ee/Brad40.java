@@ -40,18 +40,18 @@ public class Brad40 extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Enumeration<String> params = servletConfig.getInitParameterNames();
-		while (params.hasMoreElements()) {
-			String param = params.nextElement();
-			System.out.println(param + " = " + 
-					servletConfig.getInitParameter(param));
-		}
+//		while (params.hasMoreElements()) {
+//			String param = params.nextElement();
+//			System.out.println(param + " = " + 
+//					servletConfig.getInitParameter(param));
+//		}
 	
 		String realPath = servletContext.getRealPath("/");
 		System.out.println(realPath);
 		Set<String> paths = servletContext.getResourcePaths("/");
-		for (String path : paths) {
-			System.out.println(path);
-		}
+//		for (String path : paths) {
+//			System.out.println(path);
+//		}
 		
 		
 		
