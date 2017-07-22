@@ -2,6 +2,7 @@ package tw.brad.j2ee;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Set;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -45,7 +46,16 @@ public class Brad40 extends HttpServlet {
 					servletConfig.getInitParameter(param));
 		}
 	
-	
+		String realPath = servletContext.getRealPath("/");
+		System.out.println(realPath);
+		Set<String> paths = servletContext.getResourcePaths("/");
+		for (String path : paths) {
+			System.out.println(path);
+		}
+		
+		
+		
+		
 	}
 
 }
