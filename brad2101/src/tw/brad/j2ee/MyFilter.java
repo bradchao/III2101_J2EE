@@ -24,10 +24,10 @@ public class MyFilter implements Filter{
 		
 		System.out.println("doFilter: before");
 		
-		String user = req.getParameter("user");
-		if (user != null && user.equals("brad")) {
+//		String user = req.getParameter("user");
+//		if (user != null && user.equals("brad")) {
 			chain.doFilter(req, resp);
-		}
+//		}
 		
 		System.out.println("doFilter: after");
 	}

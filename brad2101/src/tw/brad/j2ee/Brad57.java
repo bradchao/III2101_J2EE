@@ -18,6 +18,7 @@ public class Brad57 extends HttpServlet {
 		List<AsyncContext> asyncs = (List)servletContext.getAttribute("asyncs");
 		synchronized (asyncs) {
 			AsyncContext async = request.startAsync();
+			//System.out.println(async.getTimeout());
 			async.setTimeout(900000000);
 			asyncs.add(async);
 		}

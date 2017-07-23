@@ -36,7 +36,7 @@ public class Brad56 extends HttpServlet {
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(30 * 1000);
+				Thread.sleep(1 * 1000);
 				
 				PrintWriter out = asyncContext.getResponse().getWriter();
 				out.print("OK3:" + (int)(Math.random()*49+1));
