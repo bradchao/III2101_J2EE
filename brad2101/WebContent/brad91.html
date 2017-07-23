@@ -1,0 +1,26 @@
+<script 
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script>
+	function getData(){
+	    $.get("Brad54", function(data, status){
+	    	$("#here").html(data);
+	    });
+	}
+	function getData2(){
+	    $.get("Brad55", function(data, status){
+	    	$("#here2").html(data);
+	    });
+	}
+</script>
+
+<h1>Brad Big Company</h1>
+<hr />
+<input type="button" onclick="getData()" value="Get Data" />
+<hr />
+<div id="here"></div>
+<hr />
+<input type="button" onclick="getData2()" value="Get Data2" />
+<hr />
+<div id="here2"></div>
+
