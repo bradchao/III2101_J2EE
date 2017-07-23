@@ -2,6 +2,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 <script>
+	$.ajaxSetup({ cache: false });
 	function getData(){
 	    $.get("Brad54", function(data, status){
 	    	$("#here").html(data);
@@ -10,6 +11,16 @@
 	function getData2(){
 	    $.get("Brad55", function(data, status){
 	    	$("#here2").html(data);
+	    });
+	}
+	function getData3(){
+	    $.get("Brad56", function(data, status){
+	    	$("#here3").html(data);
+	    });
+	}
+	function getData4(){
+	    $.get("Brad57", function(data, status){
+	    	$("#mesg").html(data);
 	    });
 	}
 </script>
@@ -23,4 +34,12 @@
 <input type="button" onclick="getData2()" value="Get Data2" />
 <hr />
 <div id="here2"></div>
+<hr />
+<input type="button" onclick="getData3()" value="Get Data3" />
+<hr />
+<div id="here3"></div>
+<hr />
+<input type="button" onclick="getData4()" value="Get Message" />
+<hr />
+<div id="mesg"></div>
 

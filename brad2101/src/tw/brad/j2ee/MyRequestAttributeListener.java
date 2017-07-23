@@ -5,7 +5,7 @@ import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.ServletRequestAttributeListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener
+//@WebListener
 public class MyRequestAttributeListener 
 	implements ServletRequestAttributeListener{
 
@@ -25,17 +25,17 @@ public class MyRequestAttributeListener
 
 	@Override
 	public void attributeReplaced(ServletRequestAttributeEvent event) {
-		String name = event.getName();
-		System.out.println("request replace attribute: " + name);
-		
-		if (name.equals("x")) {
-			String value = (String)event.getValue();
-			System.out.println("request attribute replace before: " + name + " -> " + value);
-			
-			ServletRequest req = event.getServletRequest();
-			String v2 = (String)req.getAttribute(name);
-			System.out.println("request attribute replace after: " + name + " -> " + v2);
-		}
+//		String name = event.getName();
+//		System.out.println("request replace attribute: " + name);
+//		
+//		if (name.equals("x")) {
+//			String value = (String)event.getValue();
+//			System.out.println("request attribute replace before: " + name + " -> " + value);
+//			
+//			ServletRequest req = event.getServletRequest();
+//			String v2 = (String)req.getAttribute(name);
+//			System.out.println("request attribute replace after: " + name + " -> " + v2);
+//		}
 	}
 
 }
