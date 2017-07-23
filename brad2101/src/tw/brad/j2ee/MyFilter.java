@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(filterName="BradFilter", urlPatterns={"/*"})
+@WebFilter(filterName="BradFilter", urlPatterns={"/iii/*"})
 public class MyFilter implements Filter{
 	@Override
 	public void init(FilterConfig config) throws ServletException {
@@ -24,7 +24,10 @@ public class MyFilter implements Filter{
 		
 		System.out.println("doFilter: before");
 		
-		chain.doFilter(req, resp);
+		String user = req.getParameter("user");
+		if (user != null && user.equals("brad")) {
+			chain.doFilter(req, resp);
+		}
 		
 		System.out.println("doFilter: after");
 	}

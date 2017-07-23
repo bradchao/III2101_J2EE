@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/iii/Brad01")
-public class Brad01 extends HttpServlet {
+@WebServlet("/Chao01")
+public class Chao01 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 //		System.out.println("doGet");
