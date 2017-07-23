@@ -19,6 +19,6 @@ public class Brad01 extends HttpServlet {
 			writer.write("Hello, World");
 			writer.flush();
 		}
-		
+		System.out.println("I am Brad01");
 	}
 }
