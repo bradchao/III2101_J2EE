@@ -20,6 +20,9 @@ public class MyServerListenerV2 implements ServletContextListener {
 		List<AsyncContext> asyncs = new LinkedList<>();
 		servletContext.setAttribute("asyncs", asyncs);
 		
+		MyAsyncListener myAsyncListener = new MyAsyncListener();
+		servletContext.setAttribute("asyncListener", myAsyncListener);
+		
 		
 	}
 

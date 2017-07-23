@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.List;
 
 import javax.servlet.AsyncContext;
+import javax.servlet.AsyncEvent;
+import javax.servlet.AsyncListener;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,12 +37,13 @@ public class Brad60 extends HttpServlet {
 		synchronized (asyncs) {
 			for (AsyncContext asyncContext : asyncs) {
 				System.out.println("send");
-				
+
 				HttpServletResponse resp = (HttpServletResponse)asyncContext.getResponse(); 
 				resp.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = resp.getWriter();
 				out.print(mesg);
 				asyncContext.complete();
+				
 			}
 			asyncs.clear();
 		};
@@ -48,5 +51,6 @@ public class Brad60 extends HttpServlet {
 		response.sendRedirect("brad93.html");
 		
 	}
+	
 
 }

@@ -1,0 +1,28 @@
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBJVl8PEzSsBpBDzrZ1BQUKtAmUOztLdDc",
+    authDomain: "mycoolproj-86649.firebaseapp.com",
+    databaseURL: "https://mycoolproj-86649.firebaseio.com",
+    projectId: "mycoolproj-86649",
+    storageBucket: "",
+    messagingSenderId: "382968675951"
+  };
+  var defaultApp = firebase.initializeApp(config);
+  var defaultDatabase = defaultApp.database();
+  
+  var ref = firebase.database().ref('/tasks/' + userUID);
+  ref.on('child_changed', function(data) {
+	   updateTaskView(data.key, data.val().title);
+	   
+});
+  
+  
+</script>
